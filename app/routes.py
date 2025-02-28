@@ -16,13 +16,15 @@ def home():
 # Rota para página apos fazer cadastro
 @main.route('/sucess_cadastro')
 def sucess_cadastro():
-    return render_template('sucess_cadastro.html')
+    name = request.args.get('name')
+    return render_template('sucess_cadastro.html', name=name)
 
 
 # Rota para página apos fazer login
 @main.route('/sucess_login')
 def sucess_login():
-    return render_template('sucess_login.html')
+    name = request.args.get('name')
+    return render_template('sucess_login.html', name=name)
 
 
 # Rota para fazer cadastro 
