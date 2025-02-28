@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --primary-color: #160C28;
+    --secundary-color: #255C99;
+    --button-color: #2667FF;
+    --button-hover: #1b429e;
+    --link-color: #06AED5;
+    --rotate-color-one: #3B28CC;
+    --rotate-color-two: #C200FB;
+    --rotate-color-three: #DE1A1A;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-image: url(../imagens/background-photo.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.container > .content {
+    height: 500px;
+    width: 600px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 1em;
+
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.container > .content > h1 {
+    font-size: 3em;
+}
+
+.container > .content > p {
+    font-size: 2.5em;
+    margin-top: 20px;
+}
+
+/* Configurações do button */
+
+.container > .content > a > button {
+    padding: 1.3em;
+    font-size: 1.5em;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    width: 100%;
+    margin-top: 100px;
+    cursor: pointer;
+
+    background-color: var(--button-color);
+    color: #fff;
+}
+
+.container > .content > a > button:hover {
+    transition: .8s;
+
+    background-color: var(--button-hover);
+}
+
+
+/* Configurações do button spin */
+
+.content > a > .load > button {
+    padding: .7em;
+    font-size: 1.5em;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    width: 100%;
+    margin-top: 100px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--button-color);
+    color: #fff;
+}
+
+#load {
+    display: none;
+}
+
+.content > a > .load > button > .spin {
+    height: 40px;
+    width: 40px;
+
+    border-radius: 50%;
+    border: 3px solid #fff;
+    border-bottom-color: transparent;
+
+    animation-name: spin;
+    animation-timing-function: ease-in-out;
+    animation-duration: 700ms;
+    animation-iteration-count: infinite;
+}
+
+
+/* Configurações keyframe do spin */
+
+@keyframes spin {
+    to {
+        transform: rotate(0deg);
+    }
+
+    from {
+        transform: rotate(360deg);
+    }
+
+}
