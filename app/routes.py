@@ -1,4 +1,5 @@
 from flask import render_template, request, redirect, url_for, session, Blueprint
+from werkzeug.security import generate_password_hash, check_password_hash
 from .models import db, User
 from time import sleep
 
@@ -43,7 +44,8 @@ def cadastro():
             error_message = "Nome ou Email já cadastrado!"
             return render_template('index.html', error_cadastro=error_message)            
         else:
-            user = User(name=name, email=email, password=password)
+            senha_hash = generate_password_hash(password)
+            user = User(name=name, email=email, password=senha_hash)
 
             db.session.add(user)
             db.session.commit()
@@ -64,9 +66,9 @@ def login():
         email = request.form.get('email_login')
         password = request.form.get('password_login')
 
-        user_exists = User.query.filter_by(name=name, email=email, password=password).first()
+        user_exists = User.query.filter_by(name=name, email=email).first()
 
-        if user_exists:
+        if user_exists and check_password_hash(user_exists.password, password):
             sleep(3)
             return redirect(url_for('main.sucess_login', name=name))
         else:
