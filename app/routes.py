@@ -28,15 +28,18 @@ def sucess_login():
 # Rota para fazer cadastro 
 @main.route('/cadastro', methods=['POST', 'GET'])
 def cadastro():
+    error_message = None
+
     if request.method == "POST":
         name = request.form.get('name')
         email = request.form.get('email')
         password = request.form.get('password')
 
-        user_exists = User.query.filter_by(name=name, email=email).first()
+        user_exists = User.query.filter((User.name == name) | (User.email == email)).first()
 
         if user_exists:
-            return redirect(url_for('main.home', error="Nome ou Email já cadastrado."))            
+            error_message = "Nome ou Email já cadastrado!"
+            return render_template('index.html', error_cadastro=error_message)            
         else:
             user = User(name=name, email=email, password=password)
 
@@ -52,6 +55,8 @@ def cadastro():
 # Rota para fazer login
 @main.route('/login', methods=['POST', 'GET'])
 def login():
+    error_message = None
+
     if request.method == "POST":
         name = request.form.get('name_login')
         email = request.form.get('email_login')
@@ -63,7 +68,8 @@ def login():
             sleep(3)
             return redirect(url_for('main.sucess_login', name=name))
         else:
-            return redirect(url_for('main.home', error="Dados inválidos Tente novamente."))
+            error_message = "Dados inválidos! Tente novamente."
+            return render_template('index.html', error_login=error_message)
 
     return render_template('index.html')
     

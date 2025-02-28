@@ -133,7 +133,7 @@ body {
     font-weight: 900;
     border: none;
     border-radius: 20px;
-    margin-top: 40px;
+    margin-top: 33px;
     cursor: pointer;
     color: #fff;
     background-color: var(--button-color);
@@ -189,4 +189,18 @@ body {
 /* Efeito de troca dos formulários */
 .active {
     transform: translateY(-100%);
+}
+
+/* Configuração para error de cadastro e login */
+
+.error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.error > p {
+    font-size: 1.3em;
+    
+    color: red;
 }

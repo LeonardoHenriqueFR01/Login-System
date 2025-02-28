@@ -34,6 +34,12 @@
 
                     <p>Já tem uma conta? <a href="#" onclick="toggleForms()">Clique aqui para fazer login</a></p>
 
+                    <div class="error">
+                        {% if error_cadastro %}
+                            <p>{{ error_cadastro }}</p>
+                        {% endif %}
+                    </div>
+
                     <button id="btn_submit_cadastro" onclick="get_submit_cadastro()">Cadastrar</button>
 
                     <div class="box-load" id="box_load_cadastro">
@@ -62,6 +68,12 @@
                     <input type="password" name="password_login" id="password_login" required minlength="8" maxlength="20" placeholder="Digite sua senha aqui">
 
                     <p>Não tem uma conta? <a href="#" onclick="toggleForms()">Clique aqui para fazer cadastro</a></p>
+
+                    <div class="error">
+                        {% if error_login %}
+                            <p>{{ error_login }}</p>
+                        {% endif %}
+                    </div>
 
                     <button id="btn_submit_login" onclick="get_submit_login()">Login</button>
 
