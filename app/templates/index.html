@@ -13,8 +13,74 @@
 
 <body>
     
+    <div class="container" id="container">
+
+        <div class="content" id="content">
+
+            <div class="div cadastro" id="cadastro">
+
+                <h1>Cadastro</h1>
+
+                <form action="#" method="POST" autocomplete="off">
+
+                    <label for="name">Nome:</label>
+                    <input type="text" name="name" id="name" required placeholder="Digite seu nome aqui" minlength="3">
+
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" required placeholder="Digite seu email aqui" minlength="12">
+
+                    <label for="password">Senha:</label>
+                    <input type="password" name="password" id="password" required minlength="8" maxlength="20" placeholder="Digite sua senha aqui">
+
+                    <p>Já tem uma conta? <a href="#" onclick="toggleForms()">Clique aqui para fazer login</a></p>
+
+                    <button id="btn_submit_cadastro" onclick="get_submit('cadastro')">Cadastrar</button>
+
+                    <div class="box-load" id="box_load_cadastro">
+                        <button>
+                            <div class="spin"></div>
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+
+            <div class="login" id="login">
+                
+                <h1>Login</h1>
+
+                <form action="#" method="POST" autocomplete="off">
+
+                    <label for="name">Nome:</label>
+                    <input type="text" name="name" id="name" required placeholder="Digite seu nome aqui" minlength="3">
+
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" required placeholder="Digite seu email aqui" minlength="12">
+
+                    <label for="password">Senha:</label>
+                    <input type="password" name="password" id="password" required minlength="8" maxlength="20" placeholder="Digite sua senha aqui">
+
+                    <p>Não tem uma conta? <a href="#" onclick="toggleForms()">Clique aqui para fazer cadastro</a></p>
+
+                    <button id="btn_submit_login" onclick="get_submit('login')">Login</button>
+
+                    <div class="box-load" id="box_load_login">
+                        <button>
+                            <div class="spin"></div>
+                        </button>
+                    </div>
+                    
+                </form>
+                
+            </div>
+
+        </div>
+
+    </div>
 
     <script src="../static/js/index.js"></script>
+
 </body>
 
 </html>

@@ -1,0 +1,192 @@
+/* Resetando estilos padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --primary-color: #160C28;
+    --secundary-color: #255C99;
+    --button-color: #2667FF;
+    --button-hover: #1b429e;
+    --link-color: #06AED5;
+    --rotate-color-one: #3B28CC;
+    --rotate-color-two: #C200FB;
+    --rotate-color-three: #DE1A1A;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-image: url(../imagens/background-photo.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+/* Container que envolve os formulários */
+.container {
+    width: 520px;
+    height: 550px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    border: 3px solid transparent;
+    background-clip: padding-box;
+    box-shadow: 0px 0px 100px #2667FF;
+    
+    /* Criando a animação */
+    animation: rotateBorder 2s infinite linear;
+}
+
+@keyframes rotateBorder {
+    0% {
+        border-image: linear-gradient(45deg, var(--rotate-color-one), var(--rotate-color-two)) 1;
+    }
+    50% {
+        border-image: linear-gradient(135deg, var(--rotate-color-one), var(--rotate-color-two)) 1;
+    }
+    70% {
+        border-image: linear-gradient(360deg, var(--rotate-color-three), var(--link-color)) 1;
+    }
+    100% {
+        border-image: linear-gradient(45deg, var(--rotate-color-one), var(--rotate-color-two)) 1;
+    }
+}
+
+/* Conteúdo que abriga os formulários */
+.container > .content {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Ocupa 100% do espaço disponível */
+    height: 100%; /* Garantindo a altura total do container */
+    transition: transform .8s ease-in-out;
+    justify-content: space-between; /* Distribui os formulários lado a lado */
+}
+
+/* Estilo comum para os formulários de cadastro e login */
+.content > .cadastro, .content > .login {
+    padding: 1.7em;
+    height: 550px;
+    width: 520px;
+
+    background-color: var(--primary-color);
+    flex-shrink: 0; /* Impede o encolhimento dos formulários */
+}
+
+/* Estilo para os cabeçalhos */
+.content > .cadastro > h1, .content > .login > h1 {
+    font-size: 3.5em;
+    font-weight: 600;
+    text-align: center;
+    color: #fff;
+}
+
+/* Formulário (inputs, labels e botão) */
+.content > .cadastro > form, .content > .login > form {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Faz os campos ocupar toda a largura disponível */
+}
+
+/* Labels */
+.content > .cadastro > form > label, .content > .login > form > label {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-top: 30px;
+    color: #fff;
+}
+
+/* Inputs */
+.content > .cadastro > form > input, .content > .login > form > input {
+    padding: .7em;
+    font-size: 1.4em;
+    outline: none;
+    margin-top: 10px; /* Adicionando espaçamento superior */
+}
+
+/* Texto de navegação entre os formulários */
+.content > .cadastro > form > p, .content > .login > form > p {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin: 15px 0px;
+    text-align: center;
+    color: #fff;
+}
+
+/* Link para troca de formulário */
+.content > .cadastro > form > p > a, .content > .login > form > p > a {
+    text-decoration: none;
+    color: var(--link-color);
+}
+
+/* Botões de enviar */
+.content > .cadastro > form > button, .content > .login > form > button {
+    padding: .7em;
+    font-size: 1.4em;
+    font-weight: 900;
+    border: none;
+    border-radius: 20px;
+    margin-top: 40px;
+    cursor: pointer;
+    color: #fff;
+    background-color: var(--button-color);
+}
+
+/* Hover nos botões */
+.content > .cadastro > form > button:hover, .content > .login > form > button:hover {
+    transition: .8s;
+    background-color: var(--button-hover);
+}
+
+/* Configurações de carregamento (spinner) */
+#box_load_cadastro, #box_load_login {
+    display: none;
+}
+
+.content > .cadastro > form > .box-load > button, .content > .login > form > .box-load > button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: .4em;
+    border: none;
+    border-radius: 20px;
+    margin-top: 40px;
+    background-color: var(--button-color);
+}
+
+/* Estilo do spinner (círculo giratório) */
+.content > .cadastro > form > .box-load > button > .spin, .content > .login > form > .box-load > button > .spin {
+    height: 40px;
+    width: 40px;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    border-bottom-color: transparent;
+    animation-name: spin;
+    animation-timing-function: ease-in-out;
+    animation-duration: 500ms;
+    animation-iteration-count: infinite;
+}
+
+/* Animação do spinner */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Efeito de troca dos formulários */
+.active {
+    transform: translateY(-100%);
+}
