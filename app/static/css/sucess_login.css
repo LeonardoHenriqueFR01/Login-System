@@ -30,7 +30,6 @@
 .container > .content {
     height: 500px;
     width: 600px;
-    border-radius: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -39,6 +38,17 @@
 
     background-color: var(--primary-color);
     color: #fff;
+
+    border: 3px solid transparent;
+    background-clip: padding-box;
+    box-shadow: 0px 0px 100px #2667FF;
+    
+    /* Criando a animação */
+    animation-name: rotateBorder, appear_content;
+    animation-timing-function: ease-in-out, ease-in-out;
+    animation-duration: 1s, 2s;
+    animation-delay: 1s;
+    animation-iteration-count: infinite, 1;
 }
 
 .container > .content > h1 {
@@ -53,7 +63,7 @@
 /* Configurações do button */
 
 .container > .content > a > button {
-    padding: 1.3em;
+    padding: .7em;
     font-size: 1.5em;
     font-weight: bold;
     border: none;
@@ -76,7 +86,7 @@
 /* Configurações do button spin */
 
 .content > a > .load > button {
-    padding: .7em;
+    padding: .2em;
     font-size: 1.5em;
     font-weight: bold;
     border: none;
@@ -122,4 +132,37 @@
         transform: rotate(360deg);
     }
 
+}
+
+/* Keyframe para o border do content */
+
+@keyframes rotateBorder {
+    0% {
+        border-image: linear-gradient(45deg, var(--rotate-color-one), var(--rotate-color-two)) 1;
+    }
+    50% {
+        border-image: linear-gradient(135deg, var(--rotate-color-one), var(--rotate-color-two)) 1;
+    }
+    70% {
+        border-image: linear-gradient(360deg, var(--rotate-color-three), var(--link-color)) 1;
+    }
+    100% {
+        border-image: linear-gradient(45deg, var(--rotate-color-one), var(--rotate-color-two)) 1;
+    }
+}
+
+/* Keyframe para animação para o content */
+
+@keyframes appear_content {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-100%);
+    }
+
+    100% {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
 }

@@ -45,6 +45,8 @@ body {
     animation: rotateBorder 2s infinite linear;
 }
 
+/* Keyframe para o border do container */
+
 @keyframes rotateBorder {
     0% {
         border-image: linear-gradient(45deg, var(--rotate-color-one), var(--rotate-color-two)) 1;
