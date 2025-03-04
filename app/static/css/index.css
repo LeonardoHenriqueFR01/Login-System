@@ -111,6 +111,18 @@ body {
     font-size: 1.4em;
     outline: none;
     margin-top: 10px; /* Adicionando espaçamento superior */
+    border: transparent;
+    border-bottom: 2px solid #fff;
+
+    color: #fff;
+    background-color: transparent;
+}
+
+/* Inputs focus */
+
+.content > .cadastro > form > input:focus, .content > .login > form > input:focus {
+    transition: .9s;
+    border-bottom-color: var(--button-color);
 }
 
 /* Texto de navegação entre os formulários */
