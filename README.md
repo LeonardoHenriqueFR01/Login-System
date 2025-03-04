@@ -3,6 +3,10 @@
 Um sistema de login simples desenvolvido com **HTML, CSS, JavaScript, Python/Flask e SQLite**. 
 Os usuários poderão se cadastrar inserindo **nome, e-mail e senha**, e posteriormente fazer login utilizando **e-mail e senha**.
 
+## Imagens do projeto
+![form-cadastro](/app/project-view/form-cadastro.png)
+![form-login](/app/project-view/form-login.png)
+
 ## Tecnologias Utilizadas
 
 - **Front-end:** HTML, CSS, JavaScript
