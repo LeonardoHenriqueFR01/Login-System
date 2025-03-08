@@ -1,22 +1,23 @@
-from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy  # Importa a extensão SQLAlchemy para gerenciar o banco de dados
 
+db = SQLAlchemy()  # Cria uma instância do banco de dados SQLAlchemy
 
-db = SQLAlchemy()
+class User(db.Model):  # Define a classe User como um modelo do banco de dados
+    __tablename__ = 'Users'  # Nome da tabela no banco de dados
 
-class User(db.Model):
-    __tablename__ = 'Users'
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(140), unique=True, nullable=False)
-    email = db.Column(db.String(140), unique=True, nullable=False)
-    password = db.Column(db.String(350), nullable=False)
+    # Definição das colunas da tabela Users
+    id = db.Column(db.Integer, primary_key=True)  # Chave primária, identificador único para cada usuário
+    name = db.Column(db.String(140), unique=True, nullable=False)  # Nome do usuário (único e obrigatório)
+    email = db.Column(db.String(140), unique=True, nullable=False)  # Email do usuário (único e obrigatório)
+    password = db.Column(db.String(350), nullable=False)  # Senha do usuário (obrigatória)
 
     def __repr__(self):
-        return f"<User {self.name}, {self.email}>"
-    
+        """Representação da instância do objeto User como string"""
+        return f"<User {self.name}, {self.email}>"  
 
     def asdict(self):
+        """Retorna um dicionário contendo alguns atributos do usuário"""
         return {
-            "id":self.id,
-            "name":self.name
+            "id": self.id,
+            "name": self.name
         }
-    
