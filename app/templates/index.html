@@ -23,14 +23,20 @@
 
                 <form action="/cadastro" method="POST" autocomplete="off">
 
-                    <label for="name">Nome:</label>
-                    <input type="text" name="name" id="name" required placeholder="Digite seu nome aqui" minlength="3">
+                    <div class="row">
+                        <input type="text" name="name" id="name" required minlength="3" placeholder=" ">
+                        <label for="name">Seu nome</label>
+                    </div>
 
-                    <label for="email">Email:</label>
-                    <input type="email" name="email" id="email" required placeholder="Digite seu email aqui" minlength="12">
+                    <div class="row">
+                        <input type="email" name="email" id="email" required minlength="12" placeholder=" ">
+                        <label for="name">Seu email</label>
+                    </div>
 
-                    <label for="password">Senha:</label>
-                    <input type="password" name="password" id="password" required minlength="8" maxlength="20" placeholder="Digite sua senha aqui">
+                    <div class="row">
+                        <input type="password" name="password" id="password" required minlength="3" placeholder=" ">
+                        <label for="password">Sua senha</label>
+                    </div>
 
                     <p>Já tem uma conta? <a href="#" onclick="toggleForms()">Clique aqui para fazer login</a></p>
 

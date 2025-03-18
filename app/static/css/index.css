@@ -97,34 +97,6 @@ body {
     width: 100%; /* Faz os campos ocupar toda a largura disponível */
 }
 
-/* Labels */
-.content > .cadastro > form > label, .content > .login > form > label {
-    font-size: 1.3em;
-    font-weight: bold;
-    margin-top: 30px;
-    color: #fff;
-}
-
-/* Inputs */
-.content > .cadastro > form > input, .content > .login > form > input {
-    padding: .7em;
-    font-size: 1.4em;
-    outline: none;
-    margin-top: 10px; /* Adicionando espaçamento superior */
-    border: transparent;
-    border-bottom: 2px solid #fff;
-
-    color: #fff;
-    background-color: transparent;
-}
-
-/* Inputs focus */
-
-.content > .cadastro > form > input:focus, .content > .login > form > input:focus {
-    transition: .9s;
-    border-bottom-color: var(--button-color);
-}
-
 /* Texto de navegação entre os formulários */
 .content > .cadastro > form > p, .content > .login > form > p {
     font-size: 1.3em;
@@ -217,4 +189,51 @@ body {
     font-size: 1.3em;
     
     color: red;
+}
+
+/* Input moderno */
+
+form {
+    margin-top: 50px;
+}
+
+.row {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.row > input {
+    width: 100%;
+    padding: .8em;
+    font-size: 1.5em;
+    outline: none;
+    border: 2px solid var(--button-color);
+    border-radius: 10px;
+
+    background-color: transparent;
+    color: #fff;
+}
+
+.row > label {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    font-size: 1.5em;
+    transform: translateY(-50%);
+    transition: .3s ease-in-out;
+    padding: .3em;
+
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.row > input:focus {
+    border-color: var(--button-color);
+}
+
+.row > input:focus + label,
+.row > input:not(:placeholder-shown) + label {
+    top: 0;
+
+    color: var(--button-color);
 }
