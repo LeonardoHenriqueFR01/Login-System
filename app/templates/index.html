@@ -64,14 +64,20 @@
 
                 <form action="/login" method="POST" autocomplete="off">
 
-                    <label for="name_login">Nome:</label>
-                    <input type="text" name="name_login" id="name_login" required placeholder="Digite seu nome aqui" minlength="3">
+                    <div class="row">
+                        <input type="text" name="name_login" id="name_login" required placeholder=" " minlength="3">
+                        <label for="name_login">Seu nome</label>
+                    </div>
 
-                    <label for="email_login">Email:</label>
-                    <input type="email" name="email_login" id="email_login" required placeholder="Digite seu email aqui" minlength="12">
+                    <div class="row">
+                        <input type="email" name="email_login" id="email_login" required placeholder=" " minlength="12">
+                        <label for="email_login">Seu email</label>
+                    </div>
 
-                    <label for="password_login">Senha:</label>
-                    <input type="password" name="password_login" id="password_login" required minlength="8" maxlength="20" placeholder="Digite sua senha aqui">
+                    <div class="row">
+                        <input type="password" name="password_login" id="password_login" required minlength="8" maxlength="20" placeholder=" ">
+                        <label for="password_login">Sua senha</label>
+                    </div>
 
                     <p>Não tem uma conta? <a href="#" onclick="toggleForms()">Clique aqui para fazer cadastro</a></p>
 
